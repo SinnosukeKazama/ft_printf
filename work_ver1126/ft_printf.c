@@ -9,23 +9,34 @@
 /*   Updated: 2025/12/05 13:15:34 by skazama          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "ft_printf.h"
+/*
+size_t	index_functions(char c)
+{
+	const char	conversion_signs[] = "csd";
+	size_t	i;
 
-#include <stdio.h>//printf
-#include <stdlib.h>//size_t
-#include <stdarg.h>//va_arg..
+	i = 0;
+	while (conversion_signs != '\0')
+	{
+		if (conversion_signs[i] == c)//true
+			return (i);
+		++i;
+	}
+	return (99);//error value.
+}*/
 
 void	print_conversion_format(va_list args, const char *format)
 {
+printf ("PCF\n");
 	if (*format == 'd')
-		printf("%i", va_arg(args, int));	//ft_putnumber
-	else if (*format == 'f')
-		printf("%lf", va_arg(args, double));	//ft_putnumber
+		ft_putnbr_fd(va_arg(args, int), 0);
 	else if (*format == 'c')
-		printf("%c", va_arg(args, char));	//ft_putchar
+		ft_putchar_fd(va_arg(args, char), 0);
 	else if (*format == 's')
-		printf("%s", va_arg(args, const char *));//ft_putstr
+		ft_putstr_fd(va_arg(args, char *), 0);
 	else
-		printf("ERROR\n");
+		ft_putstr_fd("error\n", 0);
 }
 
 int	ft_printf(const char *format, ...)
@@ -41,7 +52,6 @@ int	ft_printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			++i;
-//コンバージョンサインが正常にあるか.なければエラー。
 			print_conversion_format(args, &format[i]);
 		}
 		else
