@@ -1,14 +1,15 @@
 #include "ft_printf.h"
-void	ft_putstr_fd(char *s, int fd)
+int	ft_putstr(char *s)
 {
 	size_t	i;
 
 	i = 0;
 	if (!s)
-		return ;
+		return (0);
 	while (s[i] != '\0')
 	{
-		ft_putchar_fd(s[i], fd);
+		ft_putchar(s[i]);
 		++i;
 	}
+	return (i + 1);
 }

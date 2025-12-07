@@ -1,5 +1,5 @@
 #include "ft_printf.h"
-void	ft_putnbr_fd(int n, int fd)
+int	ft_putnbr(int n)
 {
 	long int	ln;
 
@@ -7,16 +7,16 @@ void	ft_putnbr_fd(int n, int fd)
 	if (ln < 0)
 	{
 		ln *= -1;
-		ft_putchar_fd('-', fd);
+		ft_putchar('-');
 	}
 	if (ln < 10)
 	{
-		ft_putchar_fd((signed char)ln + '0', fd);
-		return ;
+		ft_putchar((signed char)ln + '0');
+		return (1);//->digit();
 	}
 	else if (ln > 9)
 	{
-		ft_putnbr_fd(ln / 10, fd);
-		ft_putnbr_fd(ln % 10, fd);
+		ft_putnbr(ln / 10);
+		ft_putnbr(ln % 10);
 	}
 }

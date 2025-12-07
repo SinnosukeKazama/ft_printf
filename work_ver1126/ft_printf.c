@@ -10,54 +10,40 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
-/*
-size_t	index_functions(char c)
-{
-	const char	conversion_signs[] = "csd";
-	size_t	i;
 
-	i = 0;
-	while (conversion_signs != '\0')
-	{
-		if (conversion_signs[i] == c)//true
-			return (i);
-		++i;
-	}
-	return (99);//error value.
-}*/
-
-void	print_conversion_format(va_list args, const char *format)
+int	print_conversion_format(va_list args, const char format)
 {
-printf ("PCF\n");
-	if (*format == 'd')
-		ft_putnbr_fd(va_arg(args, int), 0);
-	else if (*format == 'c')
-		ft_putchar_fd(va_arg(args, char), 0);
-	else if (*format == 's')
-		ft_putstr_fd(va_arg(args, char *), 0);
-	else
-		ft_putstr_fd("error\n", 0);
+	int	len_count;
+
+	len_count = 0;
+	if (format == 'd')
+		len_count = ft_putnbr(va_arg(args, int));
+	else if (format == 'c')
+		len_count = ft_putchar(va_arg(args, int));
+	else if (format == 's')
+		len_count = ft_putstr(va_arg(args, char *));
+	return (len_count);
 }
 
 int	ft_printf(const char *format, ...)
 {
 	va_list	args;
-	va_start(args, format);
 	size_t	i;
+	int	len_count;
 
 	i = 0;
-	while (format[i] != '\0')
+	len_count = 0;
+	va_start(args, format);
+	while (format[i])
 	{
-//'%'はあるか.なければformat を出力
 		if (format[i] == '%')
 		{
-			++i;
-			print_conversion_format(args, &format[i]);
+			len_count += print_conversion_format(args, format[i + 1]);
 		}
 		else
 		{
-			printf("%s", format);
-			break;
+			ft_putchar(format[i], FD_STD_OUT);
+			++len_count;
 		}
 		++i;
 	}
