@@ -6,7 +6,7 @@
 /*   By: skazama <skazama@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 19:35:31 by skazama           #+#    #+#             */
-/*   Updated: 2025/12/05 13:15:34 by skazama          ###   ########.fr       */
+/*   Updated: 2025/12/07 12:32:39 by skazama          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
@@ -41,20 +41,15 @@ int	ft_printf(const char *format, ...)
 			len_count += print_conversion_format(args, format[i + 1]);
 		}
 		else
-		{
-			ft_putchar(format[i], FD_STD_OUT);
-			++len_count;
-		}
+			len_count += ft_putchar(format[i]);
 		++i;
 	}
 	va_end(args);
+	return (len_count);
 }
 
 /////////////////
 int main(void)
 {
-	ft_printf("%d%d%c%d", 10, 20, 'x', 30);
-	ft_printf("%s%s", "abc", "def");
-	ft_printf("%d%f%c", 50, 3.3, 'Z');
-	ft_printf("ABCD\n");
+	ft_printf("%c", 'a');
 }

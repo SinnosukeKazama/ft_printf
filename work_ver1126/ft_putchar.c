@@ -2,6 +2,6 @@
 
 int	ft_putchar(char c)
 {
-	write(fd, &c, 1);
+	write(0, &c, 1);
 	return (1);
 }
