@@ -123,6 +123,93 @@ void	t_uint(void)
 	//return value + 1(\n)
 	printf("re_ft=%i, re_io=%i\n", re_ft, re_io);
 }
+
+void	t_hex_lower(void)
+{
+	printf("t_hex_lower----------------------------\n");
+
+	const int	n = 200;
+	int	count_ft = 0;
+	int	count_io = count_ft;
+	int re_io, re_ft;
+	while (count_ft++ < n && count_io++ < n)
+	{
+		re_ft = printf("%x\n", count_ft);
+		re_io = printf("%x\n", count_io);
+		if (re_ft == re_io)
+			printf("re_ft=%i, re_io=%i\n",re_ft, re_io);
+		else
+			printf("\e[41mre_ft=%i, re_io=%i\n\e[0m",re_ft, re_io);
+			
+	}//ok
+	re_ft = printf("%x\n", UINT_MAX);//ok
+	re_io = printf("%x\n", UINT_MAX);
+	if (re_ft == re_io)
+		printf("re_ft=%i, re_io=%i\n",re_ft, re_io);
+	else
+		printf("\e[41mre_ft=%i, re_io=%i\n\e[0m",re_ft, re_io);
+}
+void	t_hex_upper(void)
+{
+	printf("t_hex_upper----------------------------\n");
+
+	const int	n = 200;
+	int	count_ft = 0;
+	int	count_io = count_ft;
+	int re_io, re_ft;
+	while (count_ft++ < n && count_io++ < n)
+	{
+		re_ft = printf("%X\n", count_ft);
+		re_io = printf("%X\n", count_io);
+		if (re_ft == re_io)
+			printf("re_ft=%i, re_io=%i\n",re_ft, re_io);
+		else
+			printf("\e[41mre_ft=%i, re_io=%i\n\e[0m",re_ft, re_io);
+			
+	}//ok
+	re_ft = printf("%X\n", UINT_MAX);//ok
+	re_io = printf("%X\n", UINT_MAX);
+	if (re_ft == re_io)
+		printf("re_ft=%i, re_io=%i\n",re_ft, re_io);
+	else
+		printf("\e[41mre_ft=%i, re_io=%i\n\e[0m",re_ft, re_io);
+}
+void	t_ptr(void)
+{
+	printf("t_ptr--------------------------------------\n");
+	int	i = 0;
+
+	int	re_io, re_ft;
+
+	printf("1)\n");
+	re_ft = ft_printf("%p\n", &i);
+	re_io = printf("%p\n", &i);
+	printf("re_ft=%i, re_io=%i\n",re_ft, re_io);//ok
+
+	printf("2)\n");
+	re_ft = ft_printf("%p\n", NULL);
+	re_io = printf("%p\n", NULL);
+	printf("re_ft=%i, re_io=%i\n",re_ft, re_io);//ok
+}
+void	t_percent(void)
+{
+	printf("t_percent------------------------------\n");
+
+	int	re_io, re_ft;
+
+	printf("1)\n");
+	re_ft = ft_printf("%%\n");
+	re_io = printf("%%\n");
+	printf("re_ft=%i, re_io=%i\n",re_ft, re_io);//ok
+}
+
+void	t_x(void)
+{
+	printf("t_x----------------------------------------\n");
+	int	re_ft = ft_printf("%s%c%i\n", "ABC",'d',999);
+	int	re_io =    printf("%s%c%i\n", "ABC",'d',999);
+	printf("re_ft=%i, re_io=%i\n",re_ft, re_io);//ok
+}
 int main(void)
 {
 	t_char();
@@ -130,4 +217,9 @@ int main(void)
 	t_str_and_char();
 	t_int();
 	t_uint();
+	t_hex_lower();
+	t_hex_upper();
+	t_ptr();
+	t_percent();
+	t_x();
 }

@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skazama <skazama@student.42tokyo.jp>       +#+  +:+       +#+        */
+/*   By: skazama <skazama@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 19:35:31 by skazama           #+#    #+#             */
-/*   Updated: 2025/12/07 18:33:09 by skazama          ###   ########.fr       */
+/*   Updated: 2025/12/10 18:33:07 by skazama          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "../header/ft_printf.h"
 
 int	print_conversion_format(va_list args, const char format)
@@ -20,10 +21,18 @@ int	print_conversion_format(va_list args, const char format)
 		len_count += ft_put_nbr(va_arg(args, int));
 	else if (format == 'u')
 		len_count += ft_put_unsignednbr(va_arg(args, unsigned int));
+	else if (format == 'x')
+		len_count += ft_put_hexadecimal(va_arg(args, unsigned int), lower);
+	else if (format == 'X')
+		len_count += ft_put_hexadecimal(va_arg(args, unsigned int), upper);
+	else if (format == 'p')
+		len_count += ft_put_ptr(va_arg(args, void *));
 	else if (format == 'c')
 		len_count += ft_put_char(va_arg(args, int));
 	else if (format == 's')
 		len_count += ft_put_str(va_arg(args, char *));
+	else if (format == '%')
+		len_count += ft_put_char('%');
 	return (len_count);
 }
 

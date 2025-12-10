@@ -1,17 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_put_str.c                                       :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: skazama <skazama@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/10 17:06:26 by skazama           #+#    #+#             */
-/*   Updated: 2025/12/10 17:06:28 by skazama          ###   ########.fr       */
+/*   Created: 2025/12/10 17:24:40 by skazama           #+#    #+#             */
+/*   Updated: 2025/12/10 17:25:59 by skazama          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/ft_printf.h"
-int	ft_put_str(char *s)
+
+size_t	ft_strlen(const char *s)
 {
 	size_t	i;
 
@@ -19,6 +20,6 @@ int	ft_put_str(char *s)
 	if (!s)
 		return (0);
 	while (s[i] != '\0')
-		i += ft_put_char(s[i]);
+		++i;
 	return (i);
 }

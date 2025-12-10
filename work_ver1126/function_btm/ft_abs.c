@@ -1,24 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_put_str.c                                       :+:      :+:    :+:   */
+/*   ft_abs.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: skazama <skazama@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/10 17:06:26 by skazama           #+#    #+#             */
-/*   Updated: 2025/12/10 17:06:28 by skazama          ###   ########.fr       */
+/*   Created: 2025/12/10 16:18:47 by skazama           #+#    #+#             */
+/*   Updated: 2025/12/10 16:19:34 by skazama          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/ft_printf.h"
-int	ft_put_str(char *s)
-{
-	size_t	i;
 
-	i = 0;
-	if (!s)
-		return (0);
-	while (s[i] != '\0')
-		i += ft_put_char(s[i]);
-	return (i);
+unsigned int	ft_abs(const int n)
+{
+	if (n < 0)
+		return ((unsigned int)(-(long long)n));
+	else
+		return ((unsigned int)n);
 }

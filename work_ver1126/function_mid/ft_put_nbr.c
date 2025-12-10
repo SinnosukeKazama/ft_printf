@@ -1,27 +1,6 @@
 #include "../header/ft_printf.h"
 
-static unsigned int	ft_abs(const int n)
-{
-	if (n < 0)
-		return ((unsigned int)(-(long long)n));
-	else
-		return ((unsigned int)n);
-}
 
-static int	count_digit(const int n, const unsigned int n_base)
-{
-	unsigned int	u_n;
-	int	n_digit;
-
-	u_n = ft_abs(n);
-	n_digit = 1;
-	while (u_n >= n_base)
-	{
-		u_n /= n_base;
-		n_digit++;
-	}
-	return (n_digit);
-}
 
 int	ft_put_nbr(int n)
 {
