@@ -6,7 +6,7 @@
 /*   By: skazama <skazama@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 19:35:31 by skazama           #+#    #+#             */
-/*   Updated: 2025/12/10 18:33:07 by skazama          ###   ########.fr       */
+/*   Updated: 2025/12/20 17:12:47 by skazama          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	ft_printf(const char *format, ...)
 {
 	va_list	args;
 	size_t	i;
-	int	len_count;
+	int		len_count;
 
 	i = 0;
 	len_count = 0;

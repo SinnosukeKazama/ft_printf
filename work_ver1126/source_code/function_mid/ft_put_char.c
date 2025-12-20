@@ -1,26 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   count_digit_unsigned.c                             :+:      :+:    :+:   */
+/*   ft_put_char.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: skazama <skazama@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/10 16:14:44 by skazama           #+#    #+#             */
-/*   Updated: 2025/12/10 16:20:18 by skazama          ###   ########.fr       */
+/*   Created: 2025/12/20 17:01:28 by skazama           #+#    #+#             */
+/*   Updated: 2025/12/20 17:01:33 by skazama          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/ft_printf.h"
 
-int	count_digit_unsigned(unsigned un, const unsigned int n_base)
+int	ft_put_char(char c)
 {
-	int	n_digit;
-
-	n_digit = 1;
-	while (un >= n_base)
-	{
-		un /= n_base;
-		n_digit++;
-	}
-	return (n_digit);
+	write(1, &c, 1);
+	return (1);
 }
