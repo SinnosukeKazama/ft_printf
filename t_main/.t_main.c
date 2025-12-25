@@ -3,6 +3,13 @@
 #include <stdint.h>
 #include <stdio.h>
 
+void	t_null(void)
+{
+	printf("t_null---------------------------\n");
+	int re_ft = ft_printf(NULL);
+	int re_io = printf(NULL);
+	printf("\nre_ ft=%i, io=%i\n", re_ft, re_io);
+}
 void	t_char(void)
 {
 	int re_ft, re_io;
@@ -203,9 +210,29 @@ void	t_percent(void)
 	printf("t_percent------------------------------\n");
 	int re_io, re_ft;
 	printf("1)\n");
-	re_ft = ft_printf("%%\n");
-	re_io = printf("%%\n");
+	re_ft = ft_printf("ft<%%\n>");
+	re_io =    printf("io<%%\n>");
+	printf("re_ft=%i, re_io=%i\n", re_ft, re_io); // 
+
+	printf("2)\n");
+	re_ft = ft_printf("ft<%%%\n>");
+	re_io =    printf("io<%%%\n>");
 	printf("re_ft=%i, re_io=%i\n", re_ft, re_io); // ok
+	
+	printf("3)\n");
+	re_ft = ft_printf("ft<%%%#%%%#%\n>");
+	re_io =    printf("io<%%%#%%%#%\n>");
+	printf("re_ft=%i, re_io=%i\n", re_ft, re_io); // 
+}
+
+void	t_error(void)
+{
+	printf("t_error------------------------------\n");
+	int re_io, re_ft;
+	printf("1)\n");
+	re_ft = ft_printf("ft<%%\n>", 10);
+	re_io =    printf("io<%%\n>", 10);
+	printf("re_ft=%i, re_io=%i\n", re_ft, re_io); // 
 }
 
 void	t_x(void)
@@ -220,6 +247,7 @@ void	t_x(void)
 }
 int	main(void)
 {
+	t_null();
 	t_char();
 	t_str();
 	t_str_and_char();
@@ -229,5 +257,6 @@ int	main(void)
 	t_hex_upper();
 	t_ptr();
 	t_percent();
+	t_error();
 	t_x();
 }

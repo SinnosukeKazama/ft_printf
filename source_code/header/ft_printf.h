@@ -6,7 +6,7 @@
 /*   By: skazama <skazama@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/20 17:07:52 by skazama           #+#    #+#             */
-/*   Updated: 2025/12/20 17:15:49 by skazama          ###   ########.fr       */
+/*   Updated: 2025/12/25 22:12:14 by skazama          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <stdio.h>  //printf
 #include <stdlib.h> //size_t
 #include <unistd.h>
+#define ERROR_FORMAT -1
 
 enum			e_case
 {

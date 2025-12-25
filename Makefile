@@ -11,7 +11,6 @@ FUNCTOP_DIR := $(SRC_DIR)/function_top
 SRCS	:= $(FUNCBTM_DIR)/count_digit.c\
 $(FUNCBTM_DIR)/count_digit_unsigned.c\
 $(FUNCBTM_DIR)/ft_abs.c\
-$(FUNCBTM_DIR)/ft_strlen.c\
 $(FUNCMID_DIR)/ft_put_char.c\
 $(FUNCMID_DIR)/ft_put_nbr.c\
 $(FUNCMID_DIR)/ft_put_str.c\
