@@ -7,7 +7,7 @@ void	t_null(void)
 {
 	printf("t_null---------------------------\n");
 	int re_ft = ft_printf(NULL);
-	int re_io = printf(NULL);
+	//int re_io = printf(NULL);
 	printf("\nre_ ft=%i, io=%i\n", re_ft, re_io);
 }
 void	t_char(void)

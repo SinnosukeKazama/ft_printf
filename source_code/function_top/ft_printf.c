@@ -33,6 +33,8 @@ static int	print_conversion_format(va_list args, const char c_format)
 		len_count += ft_put_str(va_arg(args, char *));
 	else if (c_format == '%')
 		len_count += ft_put_char('%');
+	else
+		return (ERROR_TYPE);
 	return (len_count);
 }
 
@@ -40,10 +42,12 @@ int	ft_printf(const char *format, ...)
 {
 	va_list	args;
 	size_t	i;
-	int		len_count;
+	int	len_count;
+	int	return_pcf;
 
 	i = 0;
 	len_count = 0;
+	return_pcf = 0;
 	va_start(args, format);
 	if (!format)
 		return (ERROR_FORMAT);
@@ -52,7 +56,10 @@ int	ft_printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			++i;
-			len_count += print_conversion_format(args, format[i]);
+			return_pcf = print_conversion_format(args, format[i]);
+			if (return_pcf == ERROR_TYPE)
+				return ERROR_FORMAT;
+			len_count += return_pcf;
 		}
 		else
 			len_count += ft_put_char(format[i]);

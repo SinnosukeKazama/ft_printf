@@ -17,6 +17,7 @@
 #include <stdlib.h> //size_t
 #include <unistd.h>
 #define ERROR_FORMAT -1
+#define ERROR_TYPE -2
 
 enum			e_case
 {
